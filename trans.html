@@ -43,12 +43,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                      $queryUser = mysqli_query($conn, "SELECT * FROM tabel_user ORDER BY idUser ASC");
-                      while($arrayUser = mysqli_fetch_array($queryUser)){
-                        echo '
-                          <tr>
+                    
                             <td class="id-user ">'.$arrayUser['idUser'].'</td>
                             <td class="nama-user ">'.$arrayUser['namaUser'].'</td>
                             <td class="telp-user ">'.$arrayUser['telpon'].'</td>
@@ -58,10 +53,7 @@
                               <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                             </a></td>
                           </tr>
-                        ';
-                      }
-
-                     ?>   
+                         
                   </tbody>
                 </table>
               </div>
@@ -136,18 +128,18 @@
                         <select class="form-control" id="kategori" name="kategori">
                           <option value="pria">Pria</option>
                           <option value="wanita">Wanita</option>
-                          <option value="anak">Anak-anak</option>
-                          <option value="couple">Couple</option>
-                          <option value="sarimbit">Sarimbit</option>
+                          
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="ukuran">Ukuran</label>
                         <select class="form-control" id="ukuran" name="ukuran">
-                          <option value="S">S</option>
-                          <option value="M">M</option>
-                          <option value="L">L</option>
-                          <option value="XL">XL</option>
+                          <option value="38">38</option>
+                          <option value="39">39</option>
+                          <option value="40">40</option>
+                          <option value="41">41</option>
+                          <option value="42">42</option>
+                          <option  value="43">43</option>
                         </select>
                       </div>
 
@@ -178,9 +170,9 @@
                   <li><a data-toggle="tab" href="#tabel-wanita">Wanita</a></li>                     
                 </ul>
               </li>
-              <li class="item-kategori"><a data-toggle="tab" href="#tabel-anak">Anak-anak</a></li>
-              <li class="item-kategori"><a data-toggle="tab" href="#tabel-couple">Couple</a></li>              
-              <li class="item-kategori"><a data-toggle="tab" href="#tabel-sarimbit">Sarimbit</a></li>
+              <li class="item-kategori"><a data-toggle="tab" href="#tabel-anak">Sepatu</a></li>
+              <li class="item-kategori"><a data-toggle="tab" href="#tabel-couple">Bag</a></li>              
+             
             </ul>
           </div>
 
