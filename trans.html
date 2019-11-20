@@ -85,12 +85,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                      $queryKomen = mysqli_query($conn, "SELECT * FROM tabel_komentar ORDER BY idKomen ASC");
-                      $jumlahKomen = mysqli_num_rows($queryKomen); 
-                      if($jumlahKomen == 0){
-                          echo '
+                    
                             <tr>
                             <td></td>
                             <td></td>
@@ -98,25 +93,10 @@
                             <td style="width: 50vw">Belum Ada Komentar</td>
                             <td></td>
                           </tr>
-                        ';
-                      }else{
-                        while($arrayKomen = mysqli_fetch_array($queryKomen)){
-                          echo '
-                            <tr>
-                              <td class="id-user ">'.$arrayKomen['idKomen'].'</td>
-                              <td class="nama-user ">'.$arrayKomen['nama'].'</td>
-                              <td class="email-user text-justify">'.$arrayKomen['email'].'</td>
-                              <td class="alamat-user text-left">'.$arrayKomen['pesan'].'</td>
-                              <td class="hapus"><a href="proses/hapusKomen.php?idKomen='.$arrayKomen['idKomen'].'">
-                                <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
-                              </a></td>
-                            </tr>
-                          ';
-                        }
-                      }
-                      
+                     
+                                      
 
-                     ?>   
+                     
                   </tbody>
                 </table>
               </div>
@@ -270,12 +250,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php 
-                        $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                        $kategori = 'anak';
-                        $query = mysqli_query($conn, "SELECT idProduk, nama, keterangan, harga, ukuran, stock, path FROM tabel_produk WHERE kategori='$kategori' ");
-                        while($array = mysqli_fetch_array($query)){
-                          echo '
+                        
                             <tr>
                               <td class="id-barang text-center">'.$array['idProduk'].'</td>
                               <td class="nama-barang text-center">'.$array['nama'].'</td>
@@ -286,8 +261,7 @@
                               <td class="gambar"><img src="proses/'.$array['path'].'" style="width: 15vw; height: 30vh"></td>
                               <td class="hapus"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal'.$array['idProduk'].'"><i class="glyphicon glyphicon-pencil"></i></button></td>
                             </tr>
-                          ';
-                          echo '
+                        
                              <!-- edit barang -->
                         <div class="modal fade" id="modal'.$array['idProduk'].'" role="dialog">
                           <div class="modal-content" style="width:40vw;margin-top:10vh; margin-left:30vw">
@@ -338,12 +312,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php 
-                        $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                        $kategori = 'couple';
-                        $query = mysqli_query($conn, "SELECT idProduk, nama, keterangan, harga, ukuran, stock, path FROM tabel_produk WHERE kategori='$kategori' ");
-                        while($array = mysqli_fetch_array($query)){
-                          echo '
+                       
                             <tr>
                               <td class="id-barang text-center">'.$array['idProduk'].'</td>
                               <td class="nama-barang text-center">'.$array['nama'].'</td>
@@ -354,8 +323,7 @@
                               <td class="gambar"><img src="proses/'.$array['path'].'" style="width: 15vw; height: 30vh"></td>
                               <td class="hapus"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal'.$array['idProduk'].'"><i class="glyphicon glyphicon-pencil"></i></button></td>
                             </tr>
-                          ';
-                          echo '
+                          
                              <!-- edit barang -->
                         <div class="modal fade" id="modal'.$array['idProduk'].'" role="dialog">
                           <div class="modal-content" style="width:40vw;margin-top:10vh; margin-left:30vw">
@@ -406,12 +374,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php 
-                        $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                        $kategori = 'sarimbit';
-                        $query = mysqli_query($conn, "SELECT idProduk, nama, keterangan, harga, ukuran, stock, path FROM tabel_produk WHERE kategori='$kategori' ");
-                        while($array = mysqli_fetch_array($query)){
-                          echo '
+                        
                             <tr>
                               <td class="id-barang text-center">'.$array['idProduk'].'</td>
                               <td class="nama-barang text-center">'.$array['nama'].'</td>
@@ -422,8 +385,7 @@
                               <td class="gambar"><img src="proses/'.$array['path'].'" style="width: 15vw; height: 30vh"></td>
                               <td class="hapus"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal'.$array['idProduk'].'"><i class="glyphicon glyphicon-pencil"></i></button></td>
                             </tr>
-                          ';
-                          echo '
+                         
                              <!-- edit barang -->
                         <div class="modal fade" id="modal'.$array['idProduk'].'" role="dialog">
                           <div class="modal-content" style="width:40vw;margin-top:10vh; margin-left:30vw">
@@ -480,15 +442,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <?php 
-                    $idUser = $_SESSION['idUser'];
-                    $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                    $queryBarang = mysqli_query($conn, "SELECT * FROM tabel_transaksi WHERE idUser='$idUser'");
-
-                    $jumlah = mysqli_num_rows($queryBarang);
-
-                    if($jumlah == 0){
-                        echo '
+                 
                             <tr>
                             <td></td>
                             <td></td>
@@ -498,12 +452,7 @@
                             <td></td>
                             <td></td>
                           </tr>
-                        ';
-                    }else{
-                        while($arrayBarang = mysqli_fetch_array($queryBarang)){
-                          $queryUser = mysqli_query($conn, "SELECT namaUser, alamat FROM tabel_user WHERE idUser='$idUser'");
-                           $arrayUser = mysqli_fetch_array($queryUser);
-                          echo '
+                   
                             <tr>
                             <td class="id-transaksi text-center">'.$arrayBarang['idTransaksi'].'</td>
                             <td class="nama-user text-center">'.$arrayUser['namaUser'].'</td>
@@ -514,12 +463,7 @@
                             <td class="hapus"><a href="proses/hapusTransaksi.php?idTransaksi='.$arrayBarang['idTransaksi'].'"><button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button></a></td>
                           </tr>
 
-                          ';
-                      }
-                    }
-                    
-
-                   ?>
+                 
                    
                   </tbody>
                 </table>
@@ -577,11 +521,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php 
-                  $conn = mysqli_connect('localhost', 'root', '', 'batiku');
-                  $queryAdmin = mysqli_query($conn, "SELECT * FROM tabel_admin");
-                  while($arrayAdmin = mysqli_fetch_array($queryAdmin)){
-                    echo '
+                
                       <tr>
                         <td class="id-transaksi text-center">'.$arrayAdmin['idAdmin'].'</td>
                         <td class="nama-user text-center">'.$arrayAdmin['namaAdmin'].'</td>
@@ -592,9 +532,7 @@
                           </a>
                           </td>
                       </tr> 
-                    ';
-                  }
-                 ?>
+             
 
                   
                 </tbody>
